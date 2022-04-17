@@ -1,0 +1,29 @@
+.email-row {
+    padding: 5px 5px;
+    display: flex;
+    border-bottom: .5px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: #ccd1e7;
+    }
+}
+.email-cell {
+    min-height: 40px;
+    display: flex;
+    align-items: center; 
+}
+
+.email-cell__sender, .email-cell__title span:nth-child(1){
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+.email-cell__title span:nth-child(2){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 5px;  
+}
+

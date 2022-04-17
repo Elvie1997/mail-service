@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'El Messiri', sans-serif;
+  font-size: 16px;
+}
+
+.main {
+  display: flex;
+  margin: 20px 10px;
+  font-size: 18px;
+  gap: 20px;
+}
+
+.app {
+  height: 100vh;
+}
+
+table {
+  width: 100%;
+  margin: 0 10px;
+  border-collapse: collapse; 
+  table-layout: fixed;
+}
+
+
+a {
+  text-decoration: none;
+  color:black
+}
+
+.no-messages-section, .not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+}
+
+.no-messages-text {
+  font-size: 20px;
+  color: #3b3e4a
+}

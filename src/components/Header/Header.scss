@@ -1,0 +1,128 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 60px;
+    color:#fff;
+    background-color: #889be5;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.header__left img{
+    cursor: pointer;
+}
+
+.header__middle {
+    flex: .7;
+    display: flex;
+    gap: 10px
+}
+
+.header__right input {
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: none;
+    color: rgb(109, 106, 106);
+    background-color: #fff;
+    caret-color: #ccc;
+    width: 100%;
+    transition: .9s;
+    &:focus {
+        outline: none;
+    }
+}
+
+.header__right__input-label {
+    position: relative;
+}
+
+.input-search {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #ccc
+}
+
+.search-btn {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    color: #fff;
+    background-color: #FF755C;
+    padding: 5px 12px;
+    border-radius: 0 20px 20px 0;
+    transition: .3s;
+    &:hover {
+        cursor: pointer;
+        background-color: #f8c22c;
+    }
+}
+
+.header__middle__section {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: .2s;
+    &:hover {
+        background-color: #6279d2;
+        cursor: pointer;
+    }
+    p {
+        font-size: 13px;
+    }
+}
+
+.header__middle__section-disabled {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 5px 10px;
+    color: #ccc;
+    background-color: none;
+    &:hover {
+        cursor: default;
+    }
+}
+
+.header__middle__icon {
+    margin-bottom: 3px;
+}
+
+.header__folder {
+    position: relative;
+}
+
+.header__folder__dropdown-menu {
+    visibility: hidden;
+    position: absolute;
+    top: 50px;
+    left: -20px;
+    overflow-y: auto;
+    z-index: 1000;
+    border: .1px solid #ccc;
+    border-radius: 10px;
+    list-style: none;
+    background-color: #889be5;
+    
+    .li-active {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        padding: 5px 30px;
+        &:hover {
+            background-color: #6279d2;
+        }
+    }
+    .li-disabled {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        padding: 5px 30px;
+        background-color: none;
+        cursor: default;
+        color: #ccc
+    }
+}

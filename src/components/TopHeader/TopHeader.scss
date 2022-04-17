@@ -1,0 +1,24 @@
+.top__header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 2%;
+background-color:whitesmoke
+}
+
+.weather__info, .user__login {
+    display: flex;
+    align-items: center;
+    }
+
+.weather__icon {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+}
+.user__login {
+    cursor: pointer;
+    .user__address {
+        margin-left: 8px;
+    }
+}
