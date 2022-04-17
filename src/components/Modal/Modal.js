@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Modal.scss'
 
 function Modal({
@@ -13,6 +13,9 @@ function Modal({
     setIsEditing,
     selectedFol
 }) {
+
+  
+  const [doubleFol, setDoubleFol] = useState(false)
 
     const handleInput = (e) => {
       if(isEditing) {
@@ -32,9 +35,16 @@ function Modal({
     }
     }
 
+
     const addEditFol = () => {
       const newEmailsData={...emailsData}
-      if (isEditing) {
+      const exists = Object.keys(emailsData).some(key=> emailsData[key].title === newFolder.title)
+    
+      if (exists) {
+        setDoubleFol(true)
+        return
+      }
+      else if (isEditing) {
           Object.keys(newEmailsData).map(key=> {
             if(newEmailsData[key].id === selectedFol.id) {
               delete newEmailsData[key]
@@ -42,6 +52,7 @@ function Modal({
             }
           })
           setEmailsData(newEmailsData)
+          console.log(newFolder)
       } 
       else  {
           setIsModalActive(false)
@@ -49,6 +60,8 @@ function Modal({
             ...prev,
             [newFolder.title]: newFolder
           }))
+          console.log(newFolder)
+
       }
         setNewFolder(prev => ({
           ...prev,
@@ -61,6 +74,7 @@ function Modal({
 
     const handleCancel = () => {
       setIsModalActive(false)
+      setDoubleFol(false)
       setNewFolder(prev => ({
         ...prev,
         name: '',
@@ -73,11 +87,12 @@ function Modal({
     <div className='modal__content'>
         <div className='modal__title'>
           <h2>{isEditing ? 'Редактировать' : 'Новая папка'}</h2>
-          <div className='modal__close' onClick={() => setIsModalActive(false)}>&#x2717;</div>
+          <div className='modal__close' onClick={handleCancel}>&#x2717;</div>
         </div>
         <label>
-          <input placeholder='Название' maxLength='30' value={newFolder.title} onChange={e => handleInput(e)} />
+          <input style={{margin: doubleFol ? '0' : '20px 0'}}placeholder='Название' maxLength='30' value={newFolder.title} onChange={e => handleInput(e)} />
         </label>
+        <p style={{display: doubleFol ? 'flex' : 'none'}}>Папка с таким названием уже существует</p>
         <div className='modal__btns'>
           <button className='button__add' onClick={addEditFol}>{isEditing ? 'Сохранить' : 'Добавить папку'}</button>
           <button className='button__cancel' onClick={handleCancel}>Отменить</button>
