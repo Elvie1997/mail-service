@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Routes, Route, useNavigate, } from "react-router-dom";
 import { faFolderOpen } from '@fortawesome/free-solid-svg-icons'
-import './App.css';
+import './App.scss';
 import TopHeader from './components/TopHeader/TopHeader.js';
 import EmailList from './components/EmailList/EmailList.js';
 import Header from './components/Header/Header.js'
@@ -44,7 +44,7 @@ function App() {
 
   const navigate = useNavigate()
   window.onload = () => {
-    navigate('/inbox')
+    navigate('/mail-service/inbox')
   }
 
   window.onpopstate = e => {
@@ -217,7 +217,7 @@ function App() {
 
           <Routes>
             {emailsDataArr.map(item => 
-              <Route key={item.name} path={`mail-service/${item.name}`} exact 
+              <Route key={item.name} path={`/mail-service/${item.name}`} exact 
               element={<EmailList emails={item.emails} 
               handleCheckBox={handleCheckBox} 
               setCurrentFolder={setCurrentFolder} 
@@ -230,10 +230,10 @@ function App() {
               />
             )}
             {emailsDataArr.map(item => item.emails.map(email => 
-               <Route path={`mail-service/${email.id}`} element={<Mail currentEmail={currentEmail} 
+               <Route path={`/${email.id}`} element={<Mail currentEmail={currentEmail} 
                currentFolder={currentFolder} moveTo={moveTo} />} />
             ))}
-             <Route path='mail-service/search' element={<EmailList emails={searchResults} 
+             <Route path='/search' element={<EmailList emails={searchResults} 
                 handleCheckBox={handleCheckBox} 
                 setCurrentFolder={setCurrentFolder} 
                 openMail={openMail}

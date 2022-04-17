@@ -29,7 +29,7 @@ function Sidebar({
   const [isEditing, setIsEditing] = useState(false)
 
   const folderElements = emailsDataArr.map(folder =>  (
-    <Link to={`/${folder.name}`} key={folder.id} id={folder.id} 
+    <Link to={`mail-service/${folder.name}`} key={folder.id} id={folder.id} 
           onClick={() => setCurrentFolder(folder.name)} 
           onContextMenu={(e) => {
             e.preventDefault()
