@@ -122,7 +122,7 @@ function Header({
             />
             {isInputClicked ? 
             <div className='search-btn' onClick={search}>
-              <Link to='/search'>Найти</Link></div> :
+              <Link to='mail-service/search'>Найти</Link></div> :
             <FontAwesomeIcon icon={faSearch} className='input-search'/>
             }
           </label>

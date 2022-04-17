@@ -2,8 +2,6 @@ import React from 'react'
 import './Mail.scss'
 
 function Mail({currentEmail, moveTo, currentFolder}) {
-  console.log(currentFolder)
-  console.log(moveTo)
 
   return (
     <div className='mail-wrapper'>
