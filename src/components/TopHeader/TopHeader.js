@@ -15,7 +15,7 @@ function TopHeader() {
         .then(data => fetch(`https://api.openweathermap.org/data/2.5/weather?q=${data.city}&appid=733f6781fab5df7b2f482c52d3887087&lang=ru&units=metric`))
         .then(res => res.json())
         .then(data => setWeather(data)) 
-        .catch(err => console.error(err));
+        .catch(err => console.error(err))
     }
 
     const radioCall = () => {
@@ -56,18 +56,20 @@ function TopHeader() {
         savedSong.pause();
     }
 
-
   return (
     <div className='top__header'>
         <div className='audio'>
         <Switch handleAudio={handleAudio} isPlaying={isPlaying} />
         </div>
 
+        { weather && weather.message !== 'city not found' ?
         <div className='weather__info'>
             <img className='weather__icon' src={weather && `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} />
             {`${weather && weather.name}, `}
             {`${weather && Math.round(weather.main.temp)}°C` } 
         </div>
+        : <></>
+        }
 
         <div className='user__login'>
             <img src={userLogo} width='20px' height='20px' alt='weather-logo'/>
